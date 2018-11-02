@@ -218,6 +218,7 @@ def _instantiate_workflow_template(workflow_name, project_id):
       "gcloud", "beta", "dataproc", "workflow-templates", "instantiate",
       workflow_name, "--project", project_id
   ]
+  print(command)
   pipe = subprocess.Popen(command)
   pipe.wait()
   if pipe.returncode != 0:
@@ -456,7 +457,7 @@ def run():
   # notify when the image will expire.
   creation_date = _parse_date_time(
       get_custom_image_creation_timestamp(args.image_name, project_id))
-  expiration_date = creation_date + datetime.timedelta(days=30)
+  expiration_date = creation_date + datetime.timedelta(days=365)
   _LOG.info(
       constants.notify_expiration_text.format(args.image_name,
                                               str(expiration_date)))
