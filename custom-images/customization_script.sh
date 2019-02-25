@@ -19,6 +19,6 @@ chmod 755 ./*conda*.sh
 
 # Update conda root environment with specific packages in pip and conda
 CONDA_PACKAGES='numpy pyspark requests scipy tzlocal python-dateutil'
-PIP_PACKAGES='slackclient gpyopt'
+PIP_PACKAGES='slackclient gpyopt matplotlib'
 CONDA_PACKAGES=$CONDA_PACKAGES PIP_PACKAGES=$PIP_PACKAGES ./install-conda-env.sh
 
